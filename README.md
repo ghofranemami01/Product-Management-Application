@@ -10,10 +10,9 @@ Developed by: Mami Ghofrane
 ## 🏗️ Architecture
 
 product-management/
+
 ├── backend/            # Spring Boot REST API (Port 3333)
-
 ├── frontend/           # Angular Web Interface (Port 4200)
-
 └── README.md           # Project documentation
 
 ---
