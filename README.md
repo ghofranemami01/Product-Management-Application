@@ -5,17 +5,13 @@ It allows efficient management of IT products and categories through a RESTful a
 
 Developed by: Mami Ghofrane
 
----
 
 ## 🏗️ Architecture
 
 product-management/
-
-├── backend/            # Spring Boot REST API (Port 3333)
-├── frontend/           # Angular Web Interface (Port 4200)
-└── README.md           # Project documentation
-
----
+├── backend/           # Spring Boot REST API (Port 3333)
+├── frontend/          # Angular Interface (Port 4200)
+└── README.md         # This file
 
 ## ⚙️ Prerequisites
 
@@ -23,8 +19,6 @@ product-management/
 - Node.js 16+
 - XAMPP (MySQL enabled)
 - Maven 3.6+ (or mvnw)
-
----
 
 ## 🗄️ Database Configuration
 
@@ -35,9 +29,7 @@ The application uses MySQL via XAMPP with the following configuration:
 - Database: gestion_produits (created automatically)
 - Username: root
 - Password: (empty by default in XAMPP)
-
----
-
+  
 ## ✨ Features
 
 ### Backend (Spring Boot)
@@ -57,8 +49,6 @@ The application uses MySQL via XAMPP with the following configuration:
 - Form validation
 - Success and error notifications
 
----
-
 ## 🛠️ Technologies Used
 
 Component      | Technologies
@@ -67,20 +57,14 @@ Backend        | Spring Boot 3.1.3, Spring Data JPA, Maven
 Frontend       | Angular 16, TypeScript, Bootstrap 5
 Database       | MySQL 8+ (via XAMPP)
 
----
-
 ## 📊 Demo Data
-
 The application contains sample data for testing:
 
 - 8 categories (Informatique, Électronique, Jouets, etc.)
 - 17 products distributed across categories
 - Products marked as "on promotion" to test filters
 
----
-
 ## 🔌 API Endpoints
-
 ### Products
 - GET /produits                → List all products
 - POST /produits               → Add a product
@@ -94,35 +78,33 @@ The application contains sample data for testing:
 - GET /produits/categories     → List all categories
 - POST /produits/categories    → Add a category
 
----
-
 ## 🗂️ Project Structure
-
 ### Backend
+
 backend/
 ├── src/main/java/soa/
-│   ├── controller/        # REST Controllers
-│   ├── entities/          # JPA Entities
-│   ├── metier/            # Business Layer
-│   ├── repository/        # JPA Repositories
+│   ├── controller/          # REST Controllers
+│   ├── entities/           # JPA Entities
+│   ├── metier/             # Business Layer
+│   ├── repository/         # JPA Repositories
 │   └── SpringJpaApplication2.java
 ├── src/main/resources/
 │   └── application.properties
 └── pom.xml
 
 ### Frontend
+
 frontend/
 ├── src/app/
-│   ├── model/             # TypeScript Models
-│   ├── services/          # HTTP Services
-│   ├── produits/          # Product List Component
-│   ├── ajout-produit/     # Add Product Component
-│   └── accueil/           # Home Component
+│   ├── model/              # TypeScript Models
+│   ├── services/           # HTTP Services
+│   ├── produits/           # Product List Component
+│   ├── ajout-produit/      # Add Product Component
+│   └── accueil/            # Home Component
 ├── angular.json
 ├── package.json
 └── tsconfig.json
 
----
 
 ## ⚠️ Troubleshooting
 
@@ -137,7 +119,6 @@ If ports 3333 or 4200 are already in use:
 - Stop the conflicting application
 - OR change the port in configuration files
 
----
 
 ## ✅ Key Features Implemented
 
