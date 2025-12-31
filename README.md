@@ -81,34 +81,35 @@ The application contains sample data for testing:
 ## 🗂️ Project Structure
 ### Backend/Frontend 
 
-product-management/
-├── backend/            # Spring Boot REST API (Port 3333)
-│   ├── src/
-│   │   └── main/
-│   │       ├── java/
-│   │       │   └── soa/
-│   │       │       ├── controller/      # REST Controllers
-│   │       │       ├── entities/        # JPA Entities
-│   │       │       ├── metier/           # Business Layer
-│   │       │       ├── repository/       # JPA Repositories
+📁 product-management/
+├── 📁 backend/                     # Spring Boot REST API (Port 3333)
+│   ├── 📁 src/
+│   │   └── 📁 main/
+│   │       ├── 📁 java/
+│   │       │   └── 📁 soa/
+│   │       │       ├── 📁 controller/     # REST Controllers
+│   │       │       ├── 📁 entities/       # JPA Entities
+│   │       │       ├── 📁 metier/          # Business Layer
+│   │       │       ├── 📁 repository/      # JPA Repositories
 │   │       │       └── SpringJpaApplication2.java
-│   │       └── resources/
+│   │       └── 📁 resources/
 │   │           └── application.properties
 │   └── pom.xml
 │
-├── frontend/           # Angular Web Interface (Port 4200)
-│   ├── src/
-│   │   └── app/
-│   │       ├── model/                   # TypeScript Models
-│   │       ├── services/                # HTTP Services
-│   │       ├── produits/                # Product List Component
-│   │       ├── ajout-produit/            # Add Product Component
-│   │       └── accueil/                 # Home Component
+├── 📁 frontend/                    # Angular Web Interface (Port 4200)
+│   ├── 📁 src/
+│   │   └── 📁 app/
+│   │       ├── 📁 model/            # TypeScript Models
+│   │       ├── 📁 services/         # HTTP Services
+│   │       ├── 📁 produits/         # Product List Component
+│   │       ├── 📁 ajout-produit/     # Add Product Component
+│   │       └── 📁 accueil/          # Home Component
 │   ├── angular.json
 │   ├── package.json
 │   └── tsconfig.json
 │
 └── README.md
+
 
 ## ⚠️ Troubleshooting
 
