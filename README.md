@@ -13,7 +13,6 @@ product-management/
 ├── frontend/           # Angular Web Interface (Port 4200)
 └── README.md           # Project documentation
 
-
 ## ⚙️ Prerequisites
 
 - Java 17+
