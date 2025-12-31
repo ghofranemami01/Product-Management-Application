@@ -79,32 +79,36 @@ The application contains sample data for testing:
 - POST /produits/categories    → Add a category
 
 ## 🗂️ Project Structure
-### Backend
+### Backend/Frontend 
 
-backend/
-├── src/main/java/soa/
-│   ├── controller/          # REST Controllers
-│   ├── entities/           # JPA Entities
-│   ├── metier/             # Business Layer
-│   ├── repository/         # JPA Repositories
-│   └── SpringJpaApplication2.java
-├── src/main/resources/
-│   └── application.properties
-└── pom.xml
-
-### Frontend
-
-frontend/
-├── src/app/
-│   ├── model/              # TypeScript Models
-│   ├── services/           # HTTP Services
-│   ├── produits/           # Product List Component
-│   ├── ajout-produit/      # Add Product Component
-│   └── accueil/            # Home Component
-├── angular.json
-├── package.json
-└── tsconfig.json
-
+product-management/
+├── backend/            # Spring Boot REST API (Port 3333)
+│   ├── src/
+│   │   └── main/
+│   │       ├── java/
+│   │       │   └── soa/
+│   │       │       ├── controller/      # REST Controllers
+│   │       │       ├── entities/        # JPA Entities
+│   │       │       ├── metier/           # Business Layer
+│   │       │       ├── repository/       # JPA Repositories
+│   │       │       └── SpringJpaApplication2.java
+│   │       └── resources/
+│   │           └── application.properties
+│   └── pom.xml
+│
+├── frontend/           # Angular Web Interface (Port 4200)
+│   ├── src/
+│   │   └── app/
+│   │       ├── model/                   # TypeScript Models
+│   │       ├── services/                # HTTP Services
+│   │       ├── produits/                # Product List Component
+│   │       ├── ajout-produit/            # Add Product Component
+│   │       └── accueil/                 # Home Component
+│   ├── angular.json
+│   ├── package.json
+│   └── tsconfig.json
+│
+└── README.md
 
 ## ⚠️ Troubleshooting
 
