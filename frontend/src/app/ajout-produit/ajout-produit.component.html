@@ -1,0 +1,120 @@
+<div class="neo-container">
+
+  <h1 class="neo-title">Fiche Produit</h1>
+
+  <!-- FORM PRODUIT -->
+  <form #produitForm="ngForm" (ngSubmit)="validerFormulaire()">
+    <div class="neo-card">
+      <div class="neo-card-body">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="neo-label">Code</label>
+            <input type="text" class="neo-input"
+                   [(ngModel)]="nouveauProduit.code"
+                   name="code" required>
+          </div>
+          <div class="col-md-6">
+            <label class="neo-label">Désignation</label>
+            <input type="text" class="neo-input"
+                   [(ngModel)]="nouveauProduit.designation"
+                   name="designation" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="neo-label">Prix DT</label>
+            <input type="number"  class="neo-input"
+                   [(ngModel)]="nouveauProduit.prix"
+                   name="prix" required>
+          </div>
+          <div class="col-md-4">
+            <label class="neo-label">Quantité</label>
+            <input type="number" class="neo-input"
+                   [(ngModel)]="nouveauProduit.quantite"
+                   name="quantite" required>
+          </div>
+          <div class="col-md-4">
+            <label class="neo-label">Date d’achat</label>
+            <input type="date" class="neo-input"
+                   [(ngModel)]="nouveauProduit.dateAchat"
+                   name="dateAchat" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="neo-label">Catégorie</label>
+            <select class="neo-select"
+                    [(ngModel)]="selectedCategoryId"
+                    name="categoryId">
+              <option value="">-- Sélectionner --</option>
+              <option *ngFor="let category of categories"
+                      [value]="category.id">
+                {{ category.libelle }} ({{ category.code }})
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-center">
+            <label class="neo-checkbox">
+              <input type="checkbox"
+                     [(ngModel)]="nouveauProduit.enPromotion"
+                     name="enPromotion">
+              <span>Produit en promotion</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="neo-actions">
+          <button class="neo-btn primary"
+                  [disabled]="!produitForm.form.valid">
+            <i class="bi bi-check-circle"></i> Valider
+          </button>
+          <button type="button" class="neo-btn danger"
+                  (click)="effacer()">
+            <i class="bi bi-trash"></i> Effacer
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <!-- FORM CATEGORIE -->
+  <div class="neo-card mt-4">
+    <div class="neo-card-header">
+      <h3>Nouvelle Catégorie</h3>
+    </div>
+
+    <div class="neo-card-body">
+      <form #categorieForm="ngForm" (ngSubmit)="ajouterCategorie()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="neo-label">Code</label>
+            <input type="text" class="neo-input"
+                   [(ngModel)]="nouvelleCategorie.code"
+                   name="codeCategorie" required>
+          </div>
+          <div class="col-md-6">
+            <label class="neo-label">Libellé</label>
+            <input type="text" class="neo-input"
+                   [(ngModel)]="nouvelleCategorie.libelle"
+                   name="libelleCategorie" required>
+          </div>
+        </div>
+
+        <div class="neo-actions center">
+          <button class="neo-btn success"
+                  [disabled]="!categorieForm.form.valid">
+            <i class="bi bi-plus-circle"></i> Ajouter
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

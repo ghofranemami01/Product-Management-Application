@@ -1,0 +1,64 @@
+<div class="neo-ui">
+
+  <!-- BACKGROUND SHAPES -->
+  <div class="floating-shape s1"></div>
+  <div class="floating-shape s2"></div>
+  <div class="floating-shape s3"></div>
+
+  <!-- HEADER -->
+  <header class="neo-header">
+    <h1>Product Control Matrix</h1>
+    <p>Visual Management Environment</p>
+  </header>
+
+  <!-- STAT RINGS -->
+ <section class="ring-section">
+
+  <div class="ring-card">
+    <span class="metric-value">{{ totalProduits }}</span>
+    <span class="metric-label">Produits</span>
+  </div>
+
+  <div class="ring-card">
+    <span class="metric-value">{{ totalCategories }}</span>
+    <span class="metric-label">Catégories</span>
+  </div>
+
+  <div class="ring-card">
+    <span class="metric-value">{{ produitsEnPromotion }}</span>
+    <span class="metric-label">Promotions</span>
+  </div>
+
+  <div class="ring-card">
+    <span class="metric-value">
+      {{ getValeurStock() | currency:'EUR' }}
+    </span>
+    <span class="metric-label">Valeur Stock</span>
+  </div>
+
+</section>
+
+
+  <!-- ACTION WAVE -->
+  <section class="wave-actions">
+    <button routerLink="/produits">Explorer</button>
+    <button routerLink="/ajouterProduit">Créer</button>
+    <button routerLink="/produits" [queryParams]="{promotion:true}">Promos</button>
+  </section>
+
+  <!-- CATEGORIES GALAXY -->
+  <section class="galaxy" *ngIf="categories.length">
+    <div class="planet"
+         *ngFor="let categorie of categories"
+         (click)="voirCategorie(categorie.id)">
+      <i class="bi" [ngClass]="getCategoryIcon(categorie.code || '')"></i>
+      <span>{{ categorie.libelle }}</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="neo-footer">
+    <span>Visual UI Experiment — Angular / Spring Boot</span>
+  </footer>
+
+</div>

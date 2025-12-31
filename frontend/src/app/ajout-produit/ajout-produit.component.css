@@ -1,0 +1,122 @@
+.neo-container {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+  color: #e5e7eb;
+}
+
+.neo-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+/* CARDS */
+.neo-card {
+  background: rgba(20, 20, 35, 0.85);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+}
+
+.neo-card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #334155;
+}
+
+.neo-card-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.neo-card-body {
+  padding: 22px;
+}
+
+/* INPUTS */
+.neo-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.neo-input,
+.neo-select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(30,30,45,0.9);
+  border: 1px solid #334155;
+  color: #f8fafc;
+}
+
+.neo-input:focus,
+.neo-select:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56,189,248,0.25);
+}
+
+/* CHECKBOX */
+.neo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.neo-checkbox input {
+  accent-color: #38bdf8;
+}
+
+/* ACTIONS */
+.neo-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.neo-actions.center {
+  justify-content: center;
+}
+
+/* BUTTONS */
+.neo-btn {
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.neo-btn.primary {
+  background: linear-gradient(90deg,#38bdf8,#6366f1);
+  box-shadow: 0 10px 30px rgba(56,189,248,.35);
+}
+
+.neo-btn.success {
+  background: linear-gradient(90deg,#22c55e,#16a34a);
+  box-shadow: 0 10px 30px rgba(34,197,94,.35);
+}
+
+.neo-btn.danger {
+  background: linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow: 0 10px 30px rgba(239,68,68,.35);
+}
+
+.neo-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .neo-actions {
+    flex-direction: column;
+  }
+}

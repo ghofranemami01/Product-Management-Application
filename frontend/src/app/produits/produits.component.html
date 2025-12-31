@@ -1,0 +1,173 @@
+<div class="neo-container">
+
+  <!-- Formulaire d'édition -->
+  <form *ngIf="editMode" #editForm="ngForm" (ngSubmit)="validerFormulaire(editForm)" #editSection>
+    <div class="neo-card mb-4">
+      <div class="neo-card-header">
+        <h3>Modifier le Produit</h3>
+      </div>
+      <div class="neo-card-body">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="code" class="neo-label">Code:</label>
+            <input type="text" id="code" name="code" class="neo-input" 
+                   [(ngModel)]="produitCourant.code" required />
+          </div>
+          <div class="col-md-6">
+            <label for="designation" class="neo-label">Désignation:</label>
+            <input type="text" id="designation" name="designation" class="neo-input" 
+                   [(ngModel)]="produitCourant.designation" required />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="prix" class="neo-label">Prix DT :</label>
+            <input type="number"  id="prix" name="prix" class="neo-input" 
+                   [(ngModel)]="produitCourant.prix" required />
+          </div>
+          <div class="col-md-4">
+            <label for="quantite" class="neo-label">Quantité:</label>
+            <input type="number" id="quantite" name="quantite" class="neo-input" 
+                   [(ngModel)]="produitCourant.quantite" required />
+          </div>
+          <div class="col-md-4">
+            <label for="dateAchat" class="neo-label">Date d'achat:</label>
+            <input type="date" id="dateAchat" name="dateAchat" class="neo-input" 
+                   [(ngModel)]="produitCourant.dateAchat" required />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="categorie" class="neo-label">Catégorie:</label>
+            <select id="categorie" name="categorie" class="neo-select" 
+                    [(ngModel)]="selectedCategory">
+              <option value="">-- Sélectionner une catégorie --</option>
+              <option *ngFor="let categorie of categories" [ngValue]="categorie">
+                {{ categorie.libelle }} ({{ categorie.code }})
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <div class="neo-checkbox mt-4">
+              <input type="checkbox" id="enPromotion" name="enPromotion" 
+                     [(ngModel)]="produitCourant.enPromotion" />
+              <label for="enPromotion">Produit en promotion</label>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="erreur" class="neo-alert">
+          {{ erreur }}
+        </div>
+
+        <div class="text-center mt-3">
+          <button type="submit" class="neo-btn neo-btn-primary" [disabled]="!editForm.form.valid">
+            <i class="bi bi-check-circle"></i> Valider
+          </button>
+          <button type="button" class="neo-btn neo-btn-secondary" (click)="annulerEdition()">
+            <i class="bi bi-x-circle"></i> Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Section de filtrage -->
+  <div class="neo-card mb-4">
+    <div class="neo-card-header">
+      <h3>Filtres de Recherche</h3>
+    </div>
+    <div class="neo-card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="searchTerm" class="neo-label">
+            <i class="bi bi-search"></i> Rechercher par désignation:
+          </label>
+          <input type="text" id="searchTerm" name="searchTerm" class="neo-input" 
+                 [(ngModel)]="searchTerm" (input)="onSearchTermChange()" 
+                 placeholder="Tapez pour rechercher...">
+        </div>
+        <div class="col-md-4">
+          <label for="categorieFilter" class="neo-label">Filtrer par catégorie:</label>
+          <select id="categorieFilter" name="categorieFilter" class="neo-select" 
+                  [(ngModel)]="filtreCategorieId" (change)="filtrerParCategorie()">
+            <option value="">-- Toutes les catégories --</option>
+            <option *ngFor="let categorie of categories" [value]="categorie.id">
+              {{ categorie.libelle }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <div class="neo-checkbox mt-4">
+            <input type="checkbox" id="filtrePromotion" name="filtrePromotion" 
+                   [(ngModel)]="filtrePromotion" (change)="filtrerPromotion()">
+            <label for="filtrePromotion">Produits en promotion uniquement</label>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <button type="button" class="neo-btn neo-btn-info" (click)="reinitialiserFiltres()">
+          <i class="bi bi-arrow-clockwise"></i> Réinitialiser les filtres
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Liste des produits -->
+  <div class="neo-card">
+    <div class="neo-card-header">
+      <h2>Liste des Produits ({{ filteredProduits.length }})</h2>
+    </div>
+    <div class="neo-card-body table-responsive">
+      <table class="neo-table">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Désignation</th>
+            <th>Prix DT</th>
+            <th>Quantité</th>
+            <th>Date d'achat</th>
+            <th>Catégorie</th>
+            <th>Promotion</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of filteredProduits">
+            <td>{{ p.code || 'N/A' }}</td>
+            <td>{{ p.designation || 'Sans nom' }}</td>
+            <td>{{ (p.prix || 0) | currency:'EUR':'symbol':'1.2-2' }}</td>
+            <td>{{ p.quantite || 0 }}</td>
+            <td>{{ p.dateAchat | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <span *ngIf="p.categorie" class="neo-badge">
+                {{ p.categorie.libelle }}
+              </span>
+              <span *ngIf="!p.categorie" class="text-muted">Aucune</span>
+            </td>
+            <td>
+              <span *ngIf="p.enPromotion" class="neo-badge-success">En promotion</span>
+              <span *ngIf="!p.enPromotion" class="neo-badge-light">Normal</span>
+            </td>
+            <td>
+              <button (click)="editerProduit(p)" class="neo-btn-small neo-btn-edit">
+                <i class="bi bi-pen"></i> Éditer
+              </button>
+            </td>
+            <td>
+              <button (click)="supprimerProduit(p)" class="neo-btn-small neo-btn-danger">
+                <i class="bi bi-trash"></i> Supprimer
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="filteredProduits.length === 0" class="neo-alert-info text-center">
+        Aucun produit trouvé.
+      </div>
+    </div>
+  </div>
+
+</div>

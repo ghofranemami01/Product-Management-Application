@@ -1,0 +1,126 @@
+.neo-container {
+  font-family: 'Inter', sans-serif;
+  color: #d1d5db;
+  background: #0d111f;
+  padding: 20px;
+}
+
+/* CARTES FORMULAIRE / TABLEAU */
+.neo-card {
+  background: rgba(25,25,35,0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.neo-card-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #374151;
+}
+
+.neo-card-header h3, .neo-card-header h2 {
+  margin: 0;
+  color: #f1f5f9;
+}
+
+.neo-card-body {
+  padding: 20px;
+}
+
+/* LABELS ET INPUTS */
+.neo-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #9ca3af;
+}
+
+.neo-input, .neo-select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background: rgba(30,30,40,0.85);
+  color: #f1f5f9;
+}
+
+.neo-input:focus, .neo-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 6px rgba(59,130,246,0.5);
+}
+
+/* CHECKBOX */
+.neo-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.neo-checkbox input {
+  margin-right: 8px;
+  accent-color: #3b82f6;
+}
+
+/* BOUTONS */
+.neo-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-btn-primary { background: #3b82f6; color: #f1f5f9; }
+.neo-btn-secondary { background: #6b7280; color: #f1f5f9; }
+.neo-btn-info { background: #6366f1; color: #f1f5f9; }
+
+.neo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(59,130,246,0.3);
+}
+
+/* BOUTONS TABLEAU */
+.neo-btn-small {
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+.neo-btn-edit { background: #3b82f6; color: #f1f5f9; }
+.neo-btn-danger { background: #ef4444; color: #f1f5f9; }
+
+.neo-btn-edit:hover { background: #2563eb; }
+.neo-btn-danger:hover { background: #dc2626; }
+
+/* ALERTES */
+.neo-alert { background: #b91c1c; color: #f1f5f9; padding: 10px 12px; border-radius: 10px; }
+.neo-alert-info { background: #1e293b; color: #9ca3af; padding: 10px 12px; border-radius: 10px; }
+
+/* TABLEAU MODERNE */
+.neo-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #f1f5f9;
+}
+
+.neo-table th, .neo-table td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.neo-table thead {
+  background: rgba(30,30,40,0.95);
+  border-bottom: 2px solid #3b82f6;
+}
+
+.neo-table tbody tr:nth-child(even) {
+  background: rgba(30,30,40,0.6);
+}
+
+/* BADGES */
+.neo-badge { background: #6b7280; color: #f1f5f9; padding: 2px 8px; border-radius: 8px; font-size: 12px; }
+.neo-badge-success { background: #16a34a; color: #f1f5f9; padding: 2px 8px; border-radius: 8px; font-size: 12px; }
+.neo-badge-light { background: #9ca3af; color: #111827; padding: 2px 8px; border-radius: 8px; font-size: 12px; }
